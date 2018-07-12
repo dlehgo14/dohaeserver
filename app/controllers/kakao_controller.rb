@@ -48,7 +48,6 @@ class KakaoController < ApplicationController
 				}
 			}
 			render json: @msg, status: :ok
-		end
 		else
 			@msg = {
 				message: {
