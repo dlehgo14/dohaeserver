@@ -47,7 +47,7 @@ class KakaoController < ApplicationController
 					}
 				},
 				keyboard: {
-					type: "text",
+					type: "text"
 				}
 			}
 			render json: @msg, status: :ok
