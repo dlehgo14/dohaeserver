@@ -9,27 +9,27 @@ class KakaoController < ApplicationController
   end
 	
   def message
-   @response = params[:content]
+		@response = params[:content]
 			
-	 if @response == "소개"
-		@msg = {
-			message: {
-				text: "엉터리생고기 교대역점입니다.",
-				photo: {
-					url: "/다람쥐.png",
-					width: 640,
-					height: 480
+		if @response == "소개"
+			@msg = {
+				message: {
+					text: "엉터리생고기 교대역점입니다.",
+					photo: {
+						url: "/다람쥐.png",
+						width: 640,
+						height: 480
+					}
+					# message_button: {
+					#   label: "NAVER BLOG",
+					#   url: "https://blog.naver.com/xhdtn8070/221231786261"
+					# }
+				},
+				keyboard: {
+					type: "buttons",
+					buttons: ["소개", "예약"]
 				}
-				# message_button: {
-				#   label: "NAVER BLOG",
-				#   url: "https://blog.naver.com/xhdtn8070/221231786261"
-				# }
-			},
-			keyboard: {
-				type: "buttons",
-				buttons: ["소개", "예약"]
 			}
-		}
 		render json: @msg, status: :ok
 			
 		elsif @response == "예약"
