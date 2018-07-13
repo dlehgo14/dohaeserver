@@ -27,7 +27,7 @@ class KakaoController < ApplicationController
 				},
 				keyboard: {
 					type: "buttons",
-					buttons: ["소개", "예약"]
+					buttons: ["소개", "메뉴", "예약"]
 				}
 			}
 		render json: @msg, status: :ok
@@ -35,7 +35,7 @@ class KakaoController < ApplicationController
 		elsif @response == "예약"
 			@msg = {
 				message: {
-					text: "예약 날짜 및 시간, 인원수를 입력해주세요."
+					text: "02-596-8009\n전화 주시면 친절히 예약 도와드리겠습니다."
 					# photo: {
 					#     url: "https://s3.ap-northeast-2.amazonaws.com/tongilstorage/kakaochat/3.PNG",
 					#     width: 640,
@@ -44,7 +44,25 @@ class KakaoController < ApplicationController
 					
 				},
 				keyboard: {
-					type: "text"
+					type: "buttons",
+					buttons: ["소개", "메뉴", "예약"]
+				}
+			}
+			render json: @msg, status: :ok
+			elsif @response == "메뉴"
+			@msg = {
+				message: {
+					text: "메뉴판 사진"
+					# photo: {
+					#     url: "https://s3.ap-northeast-2.amazonaws.com/tongilstorage/kakaochat/3.PNG",
+					#     width: 640,
+					#     height: 480
+					# },
+					
+				},
+				keyboard: {
+					type: "buttons",
+					buttons: ["소개", "메뉴", "예약"]
 				}
 			}
 			render json: @msg, status: :ok
